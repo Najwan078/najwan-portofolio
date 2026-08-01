@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://portofolio-najwan.vercel.app/sitemap.xml",
+    sitemap: "https://najwan-portofolio.vercel.app/sitemap.xml",
   };
 }

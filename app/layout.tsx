@@ -22,7 +22,7 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://portofolio-najwan.vercel.app"),
+  metadataBase: new URL("https://najwan-portofolio.vercel.app"),
   title: "Muhammad Najwan Pratomo — Web Developer & AI Prompt Engineer",
   description:
     "Membangun sistem web dan solusi AI untuk bisnis, komunitas, dan institusi pendidikan. Fullstack developer berbasis di Tangerang, Indonesia.",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title: "Muhammad Najwan Pratomo — Web Developer & AI Prompt Engineer",
     description:
       "Membangun sistem web dan solusi AI untuk bisnis, komunitas, dan institusi pendidikan.",
-    url: "https://portofolio-najwan.vercel.app",
+    url: "https://najwan-portofolio.vercel.app",
     siteName: "Muhammad Najwan Pratomo",
     locale: "id_ID",
     type: "website",
