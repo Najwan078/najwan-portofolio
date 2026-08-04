@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Code2, Eye, Clock, TrendingUp } from "lucide-react";
 
 const facts = [
-  { label: "semester 4", value: "UNPAM" },
+  { label: "semester 4", value: "Universitas Pamulang" },
   { label: "background", value: "F&B → Tech" },
   { label: "status", value: "Freelance" },
 ];
@@ -12,17 +12,17 @@ const facts = [
 const principles = [
   {
     icon: Code2,
-    label: "Kode Rapi",
-    detail: "Terstruktur, mudah dibaca, dan gampang di-maintain jangka panjang.",
+    label: "Kode",
+    detail: "Terstruktur, mudah dibaca, dan gampang di maintain jangka panjang.",
   },
   {
     icon: Eye,
     label: "Detail-Oriented",
-    detail: "Kebiasaan dari kerja SOP ketat — teliti di setiap langkah pengerjaan.",
+    detail: "Kebiasaan dari kerja SOP ketat teliti di setiap langkah pengerjaan.",
   },
   {
     icon: Clock,
-    label: "Tahan Deadline",
+    label: "Deadline",
     detail: "Terbiasa kerja cepat dan tetap presisi di bawah tekanan waktu.",
   },
   {
@@ -39,7 +39,6 @@ export default function About() {
       <div className="pointer-events-none absolute bottom-0 right-10 h-[260px] w-[260px] rounded-full bg-gold-500/10 blur-[100px]" />
 
       <div className="relative mx-auto max-w-6xl">
-        <p className="eyebrow bracket mb-4">tentang saya</p>
 
         <div className="grid md:grid-cols-2 gap-12 md:gap-16">
           <motion.div
@@ -49,7 +48,7 @@ export default function About() {
             transition={{ duration: 0.5 }}
           >
             <h2 className="font-display font-bold text-2xl sm:text-3xl text-mist-100 leading-tight mb-6">
-              Mahasiswa Informatika &amp; Freelance Web Developer
+              Mahasiswa Teknik Informatika &amp; Freelance Web Developer
             </h2>
 
             <div className="flex flex-wrap gap-3 mb-7">
@@ -64,19 +63,18 @@ export default function About() {
             <p className="text-mist-400 leading-relaxed">
               Saya <span className="text-mist-100 font-medium">Muhammad Najwan Pratomo</span>,
               mahasiswa <span className="text-mist-100 font-medium">Teknik Informatika di Universitas Pamulang</span>,
-              semester 4, dengan fokus praktis pada struktur data, teori graf,
-              algoritma, dan arsitektur basis data.
+              semester 4, dengan fokus pada pengembangan web dan pemrograman berbasis data. Saya memiliki ketertarikan yang kuat pada teknologi, terutama dalam membangun aplikasi web yang efisien dan user-friendly.
             </p>
             <p className="mt-4 text-mist-400 leading-relaxed">
               Sebelum masuk dunia teknologi, saya bekerja di bidang{" "}
-              <span className="text-mist-100 font-medium">F&amp;B dan manufaktur</span> —
+              <span className="text-mist-100 font-medium">F&amp;B dan manufaktur</span>,
               pengalaman yang membentuk kebiasaan kerja teliti dan disiplin
               terhadap SOP, yang sekarang saya bawa ke pengembangan software.
             </p>
             <p className="mt-4 text-mist-400 leading-relaxed">
               Saat ini saya aktif sebagai{" "}
-              <span className="text-mist-100 font-medium">freelance web developer dan data annotator</span>,
-              mengerjakan proyek untuk klien UMKM dan organisasi — mulai dari
+              <span className="text-mist-100 font-medium">freelance web developer</span>,
+              mengerjakan proyek untuk klien UMKM dan organisasi mulai dari
               landing page sampai sistem berbasis database.
             </p>
           </motion.div>

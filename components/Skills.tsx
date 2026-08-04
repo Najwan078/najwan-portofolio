@@ -35,7 +35,6 @@ export default function Skills() {
   return (
     <section id="skills" className="relative py-24 px-6 md:px-10">
       <div className="mx-auto max-w-6xl">
-        <p className="eyebrow bracket mb-4">tech stack</p>
         <h2 className="font-display font-bold text-3xl sm:text-4xl text-mist-100 mb-12">
           Teknologi yang saya pakai
         </h2>

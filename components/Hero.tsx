@@ -26,7 +26,6 @@ export default function Hero() {
             custom={0}
             className="eyebrow mb-5 text-gold-400"
           >
-            {"< hello, saya />"}
           </motion.p>
 
           <motion.h1
@@ -48,7 +47,7 @@ export default function Hero() {
             custom={2}
             className="mt-4 eyebrow text-mist-400 text-sm sm:text-base tracking-wide"
           >
-            WEB DEVELOPER &amp; AI PROMPT ENGINEER
+            WEB DEVELOPER | FREELANCE | MAHASISWA TEKNIK INFORMATIKA
           </motion.p>
 
           <motion.p
@@ -58,9 +57,8 @@ export default function Hero() {
             custom={3}
             className="mt-5 max-w-lg text-mist-400 text-base sm:text-lg leading-relaxed"
           >
-            Saya merancang dan membangun website — dari landing page sederhana
-            sampai sistem berbasis database — dengan fondasi teknik yang rapi
-            dan sentuhan AI di setiap prosesnya.
+            Saya merancang dan membangun website dari landing page sederhana
+            sampai sistem berbasis database dengan fondasi teknik yang rapi
           </motion.p>
 
           <motion.div
@@ -80,7 +78,7 @@ export default function Hero() {
               href="#projects"
               className="inline-flex items-center rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-mist-100 hover:border-gold-400/60 hover:text-gold-400 transition-colors"
             >
-              Lihat Proyek
+              Lihat Projects
             </a>
           </motion.div>
 
@@ -92,11 +90,11 @@ export default function Hero() {
             className="mt-12 flex items-center gap-8 border-t border-white/10 pt-6 max-w-md"
           >
             <div>
-              <p className="font-display font-bold text-2xl text-mist-100">4+</p>
+              <p className="font-display font-bold text-2xl text-mist-100">4</p>
               <p className="eyebrow text-mist-400 mt-1">Project Selesai</p>
             </div>
             <div>
-              <p className="font-display font-bold text-2xl text-mist-100">1+</p>
+              <p className="font-display font-bold text-2xl text-mist-100">1</p>
               <p className="eyebrow text-mist-400 mt-1">Tahun Freelance</p>
             </div>
             <div>

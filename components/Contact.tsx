@@ -17,7 +17,6 @@ export default function Contact() {
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
       <div className="mx-auto max-w-3xl text-center">
-        <p className="eyebrow bracket mb-4">kontak</p>
         <h2 className="font-display font-bold text-3xl sm:text-4xl text-mist-100">
           Punya kebutuhan <span className="text-gradient-gold">website</span>?
         </h2>
@@ -52,7 +51,7 @@ export default function Contact() {
           </div>
 
           <textarea
-            placeholder="Ceritakan kebutuhan website kamu..."
+            placeholder="Ceritakan kebutuhan website anda..."
             rows={4}
             value={form.message}
             onChange={(e) => setForm({ ...form, message: e.target.value })}
