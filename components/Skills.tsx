@@ -15,8 +15,6 @@ import {
   SiVercel,
 } from "react-icons/si";
 
-// react-icons dropped the Canva logo (brand takedown request), so this is a
-// small custom SVG badge instead, using Canva's real brand gradient.
 function CanvaIcon({ size = 56 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24">
