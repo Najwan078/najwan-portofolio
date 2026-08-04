@@ -14,8 +14,8 @@ export default function ServiceCard({ service, delay = 0 }: { service: Service; 
       transition={{ duration: 0.55, delay, ease: "easeOut" }}
       className={`relative rounded-2xl p-7 flex flex-col ${
         service.featured
-          ? "glass-strong border border-gold-500/40 shadow-glow"
-          : "glass"
+          ? "card-solid border-l-gold-400 shadow-glow"
+          : "card-solid"
       }`}
     >
       {service.featured && (

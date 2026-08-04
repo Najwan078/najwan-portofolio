@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import { contact } from "@/lib/data";
 
 const links = [
@@ -63,9 +63,9 @@ export default function Navbar() {
           href={`https://wa.me/${contact.whatsapp}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden md:inline-flex items-center rounded-full border border-gold-500/40 px-4 py-1.5 text-sm font-medium text-gold-400 hover:bg-gold-500/10 transition-colors"
+          className="hidden md:inline-flex items-center gap-1.5 rounded-full bg-gold-500 px-5 py-2 text-sm font-semibold text-ink-950 hover:bg-gold-400 transition-colors"
         >
-          Hire Me
+          LET&apos;S TALK <ArrowRight size={15} />
         </a>
 
         {/* mobile menu toggle */}
@@ -108,9 +108,9 @@ export default function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={handleLinkClick}
-                className="inline-flex w-full items-center justify-center rounded-full border border-gold-500/40 px-4 py-2.5 text-sm font-medium text-gold-400 hover:bg-gold-500/10 transition-colors"
+                className="inline-flex w-full items-center justify-center gap-1.5 rounded-full bg-gold-500 px-4 py-2.5 text-sm font-semibold text-ink-950 hover:bg-gold-400 transition-colors"
               >
-                Hire Me
+                LET&apos;S TALK <ArrowRight size={15} />
               </a>
             </div>
           </motion.div>

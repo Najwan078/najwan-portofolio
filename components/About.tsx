@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code2, Server, Database, Sparkles } from "lucide-react";
+import { Code2, Eye, Clock, TrendingUp } from "lucide-react";
 
 const facts = [
   { label: "semester 4", value: "UNPAM" },
@@ -9,26 +9,26 @@ const facts = [
   { label: "status", value: "Freelance" },
 ];
 
-const stack = [
+const principles = [
   {
     icon: Code2,
-    label: "Frontend",
-    detail: "React, Next.js, TypeScript, Tailwind CSS.",
+    label: "Kode Rapi",
+    detail: "Terstruktur, mudah dibaca, dan gampang di-maintain jangka panjang.",
   },
   {
-    icon: Server,
-    label: "Backend",
-    detail: "Python (Flask, Django), REST API development.",
+    icon: Eye,
+    label: "Detail-Oriented",
+    detail: "Kebiasaan dari kerja SOP ketat — teliti di setiap langkah pengerjaan.",
   },
   {
-    icon: Database,
-    label: "Database",
-    detail: "PostgreSQL — perancangan skema dan optimasi query.",
+    icon: Clock,
+    label: "Tahan Deadline",
+    detail: "Terbiasa kerja cepat dan tetap presisi di bawah tekanan waktu.",
   },
   {
-    icon: Sparkles,
-    label: "AI & Kreatif",
-    detail: "Prompt engineering, AI media generation, data annotation.",
+    icon: TrendingUp,
+    label: "Terus Belajar",
+    detail: "Aktif eksplorasi tools dan teknik baru, termasuk AI & prompt engineering.",
   },
 ];
 
@@ -54,10 +54,7 @@ export default function About() {
 
             <div className="flex flex-wrap gap-3 mb-7">
               {facts.map((f) => (
-                <div
-                  key={f.label}
-                  className="glass rounded-xl px-4 py-2.5"
-                >
+                <div key={f.label} className="card-solid rounded-xl px-4 py-2.5">
                   <p className="eyebrow text-mist-400">{f.label}</p>
                   <p className="text-sm font-semibold text-gold-400">{f.value}</p>
                 </div>
@@ -91,31 +88,26 @@ export default function About() {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <h2 className="font-display font-bold text-2xl sm:text-3xl text-mist-100 leading-tight mb-6">
-              Spesialisasi &amp; Tech Stack
+              Cara Saya Kerja
             </h2>
             <p className="text-mist-400 leading-relaxed mb-6">
-              Sebagai <span className="text-mist-100 font-medium">Fullstack Web Developer</span>,
-              saya fokus pada pengembangan sistem menggunakan React dan Next.js
-              di sisi frontend, serta Flask dan Django di sisi backend.
+              Empat prinsip yang saya pegang di setiap project, dari yang kecil
+              sampai yang paling kompleks.
             </p>
 
             <div className="grid sm:grid-cols-2 gap-4">
-              {stack.map((s, i) => (
+              {principles.map((pr, i) => (
                 <motion.div
-                  key={s.label}
+                  key={pr.label}
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-60px" }}
                   transition={{ duration: 0.4, delay: 0.1 + i * 0.08 }}
-                  className="glass rounded-xl p-4 hover:border-gold-500/30 transition-colors"
+                  className="card-solid rounded-xl p-4 hover:border-l-gold-400 transition-colors"
                 >
-                  <s.icon size={18} className="text-gold-400 mb-2.5" />
-                  <p className="text-sm font-semibold text-mist-100 mb-1">
-                    {s.label}
-                  </p>
-                  <p className="text-xs text-mist-400 leading-relaxed">
-                    {s.detail}
-                  </p>
+                  <pr.icon size={18} className="text-gold-400 mb-2.5" />
+                  <p className="text-sm font-semibold text-mist-100 mb-1">{pr.label}</p>
+                  <p className="text-xs text-mist-400 leading-relaxed">{pr.detail}</p>
                 </motion.div>
               ))}
             </div>

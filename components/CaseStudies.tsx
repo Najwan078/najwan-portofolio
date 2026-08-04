@@ -49,7 +49,7 @@ export default function CaseStudies() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.55, delay: i * 0.1, ease: "easeOut" }}
-              className="glass rounded-2xl p-6 sm:p-7"
+              className="card-solid rounded-2xl p-6 sm:p-7"
             >
               <span className="eyebrow text-gold-400">{c.tag}</span>
               <h3 className="font-display font-semibold text-lg text-mist-100 mt-2 mb-5">

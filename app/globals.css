@@ -31,6 +31,12 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.08);
   }
 
+  .card-solid {
+    background: #12121A;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-left: 3px solid rgba(212, 175, 122, 0.55);
+  }
+
   .eyebrow {
     font-family: var(--font-mono);
     font-size: 0.75rem;

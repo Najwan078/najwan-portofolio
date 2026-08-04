@@ -12,7 +12,7 @@ export default function ProjectCard({ project, delay = 0 }: { project: Project; 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.55, delay, ease: "easeOut" }}
-      className="glass rounded-2xl overflow-hidden hover:border-gold-400/30 transition-colors group"
+      className="card-solid rounded-2xl overflow-hidden hover:border-gold-400/30 transition-colors group"
     >
       {project.image && (
         <div className="relative w-full h-48 overflow-hidden border-b border-white/10">
