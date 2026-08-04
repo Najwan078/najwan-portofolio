@@ -7,7 +7,7 @@ import { contact } from "@/lib/data";
 
 const links = [
   { href: "#about", label: "Tentang" },
-  { href: "#projects", label: "Proyek" },
+  { href: "#projects", label: "Projects" },
   { href: "#skills", label: "Skills" },
   { href: "#services", label: "Layanan" },
   { href: "#contact", label: "Kontak" },

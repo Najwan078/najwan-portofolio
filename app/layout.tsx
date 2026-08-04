@@ -23,11 +23,11 @@ const mono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://najwan-portofolio.vercel.app"),
-  title: "Muhammad Najwan Pratomo — Web Developer & AI Prompt Engineer",
+  title: "Muhammad Najwan Pratomo — Web Developer",
   description:
     "Membangun sistem web dan solusi AI untuk bisnis, komunitas, dan institusi pendidikan. Fullstack developer berbasis di Tangerang, Indonesia.",
   openGraph: {
-    title: "Muhammad Najwan Pratomo — Web Developer & AI Prompt Engineer",
+    title: "Muhammad Najwan Pratomo — Web Developer",
     description:
       "Membangun sistem web dan solusi AI untuk bisnis, komunitas, dan institusi pendidikan.",
     url: "https://najwan-portofolio.vercel.app",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Muhammad Najwan Pratomo — Web Developer & AI Prompt Engineer",
+    title: "Muhammad Najwan Pratomo — Web Developer",
     description:
       "Membangun sistem web dan solusi AI untuk bisnis, komunitas, dan institusi pendidikan.",
   },
