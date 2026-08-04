@@ -7,7 +7,6 @@ export default function Services() {
   return (
     <section id="services" className="relative py-24 px-6 md:px-10">
       <div className="mx-auto max-w-6xl">
-        <p className="eyebrow bracket mb-4">layanan</p>
         <h2 className="font-display font-bold text-3xl sm:text-4xl text-mist-100 max-w-2xl">
           Jasa pembuatan website
         </h2>
