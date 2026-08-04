@@ -55,7 +55,7 @@ export default function ServiceCard({ service, delay = 0 }: { service: Service; 
             : "border border-white/15 text-mist-100 hover:border-gold-400/60 hover:text-gold-400"
         }`}
       >
-        Konsultasi Sekarang
+        Pilih Paket
       </a>
     </motion.div>
   );

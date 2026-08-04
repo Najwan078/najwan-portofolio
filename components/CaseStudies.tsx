@@ -23,7 +23,7 @@ const cases = [
     solution:
       "Saya bangun sistem digital dengan jadwal sholat & Jumat otomatis, informasi hari raya, dan fitur baca Al-Qur'an online semua bisa diakses dari HP kapan saja.",
     outcome:
-      "Project ini jadi contoh sistem full-stack (Django + PostgreSQL) yang siap dipakai masjid atau organisasi mana pun yang butuh solusi serupa.",
+      "Project ini jadi contoh sistem full-stack (Django + CSS) yang siap dipakai masjid atau organisasi mana pun yang butuh solusi serupa.",
     liveUrl: "https://masjid-annadzom.vercel.app",
   },
 ];

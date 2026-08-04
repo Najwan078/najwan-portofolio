@@ -137,7 +137,7 @@ export default function Hero() {
             className="mt-5 max-w-lg text-mist-400 text-base sm:text-lg leading-relaxed"
           >
             Saya merancang dan membangun website dari landing page sederhana
-            sampai sistem berbasis database dengan fondasi teknik yang rapi
+            sampai sistem berbasis database dengan struktur teknik yang rapi
           </motion.p>
 
           <motion.div

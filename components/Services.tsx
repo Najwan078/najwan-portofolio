@@ -8,10 +8,10 @@ export default function Services() {
     <section id="services" className="relative py-24 px-6 md:px-10">
       <div className="mx-auto max-w-6xl">
         <h2 className="font-display font-bold text-3xl sm:text-4xl text-mist-100 max-w-2xl">
-          Jasa pembuatan website
+          Layanan yang saya tawarkan
         </h2>
         <p className="mt-4 max-w-xl text-mist-400">
-          Harga menyesuaikan kompleksitas kebutuhan, bukan template.
+          Jasa pembuatan landing page, website dan aplikasi.
           Cocok untuk UMKM, organisasi, sekolah, dan tim.
         </p>
 

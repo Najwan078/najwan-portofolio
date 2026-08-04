@@ -43,7 +43,7 @@ export default function Navbar() {
     >
       <nav className="mx-auto max-w-6xl px-6 md:px-10 h-16 flex items-center justify-between">
         <a href="#" className="font-display font-bold text-mist-100 tracking-tight">
-          NP<span className="text-gold-500">.</span>
+          NP<span className="text-gold-500"></span>
         </a>
 
         <ul className="hidden md:flex items-center gap-8">
