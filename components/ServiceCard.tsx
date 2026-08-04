@@ -37,7 +37,7 @@ export default function ServiceCard({ service, delay = 0 }: { service: Service; 
       <ul className="space-y-2.5 mb-8 flex-1">
         {service.deliverables.map((d) => (
           <li key={d} className="flex items-start gap-2 text-sm text-mist-300">
-            <Check size={16} className="text-violet-400 mt-0.5 shrink-0" />
+            <Check size={16} className="text-gold-400 mt-0.5 shrink-0" />
             {d}
           </li>
         ))}
@@ -55,7 +55,7 @@ export default function ServiceCard({ service, delay = 0 }: { service: Service; 
             : "border border-white/15 text-mist-100 hover:border-gold-400/60 hover:text-gold-400"
         }`}
       >
-        Pilih
+        Konsultasi Sekarang
       </a>
     </motion.div>
   );

@@ -8,20 +8,20 @@ const cases = [
     title: "BrewCraft — Coffee Shop Website",
     tag: "project mandiri",
     problem:
-      "Banyak UMKM F&B skala kecil belum punya website sendiri dan cuma mengandalkan Instagram dan WhatsApp. Calon pelanggan baru jadi sulit lihat menu lengkap atau kenal profil bisnisnya sebelum datang langsung.",
+      "Banyak UMKM F&B skala kecil belum punya website sendiri — cuma mengandalkan Instagram dan WhatsApp. Calon pelanggan baru jadi sulit lihat menu lengkap atau kenal profil bisnisnya sebelum datang langsung.",
     solution:
       "Sebagai simulasi kebutuhan itu, aku bangun website interaktif lengkap dengan menu berkategori, filter produk, galeri proses dari kebun ke cangkir, dan form pemesanan.",
     outcome:
-      "Project ini jadi contoh nyata kemampuanku membangun etalase digital untuk bisnis F&B, dari struktur, desain, sampai interaksi front-end-nya.",
+      "Project ini jadi contoh nyata kemampuanku membangun etalase digital untuk bisnis F&B — dari struktur, desain, sampai interaksi front-end-nya.",
     liveUrl: "https://brewcraft-coffe.netlify.app",
   },
   {
     title: "Masjid An-Nadzom — Sistem Manajemen Digital",
     tag: "project mandiri",
     problem:
-      "Di banyak masjid, informasi jadwal sholat dan jadwal Jumat masih disampaikan manual dengan lewat papan tulis atau pengumuman langsung. Jamaah yang tidak sempat hadir jadi ketinggalan info.",
+      "Di banyak masjid, informasi jadwal sholat dan jadwal Jumat masih disampaikan manual — lewat papan tulis atau pengumuman langsung. Jamaah yang tidak sempat hadir jadi ketinggalan info.",
     solution:
-      "Aku bangun sistem digital dengan jadwal sholat & Jumat otomatis, informasi hari raya, dan fitur baca Al-Qur'an online sehingga semua bisa diakses dari HP kapan saja.",
+      "Aku bangun sistem digital dengan jadwal sholat & Jumat otomatis, informasi hari raya, dan fitur baca Al-Qur'an online — semua bisa diakses dari HP kapan saja.",
     outcome:
       "Project ini jadi contoh sistem full-stack (Django + PostgreSQL) yang siap dipakai masjid atau organisasi mana pun yang butuh solusi serupa.",
     liveUrl: "https://masjid-annadzom.vercel.app",
@@ -38,7 +38,7 @@ export default function CaseStudies() {
         </h2>
         <p className="mt-4 max-w-xl text-mist-400">
           Dua project mandiri ini dibangun sebagai simulasi kebutuhan bisnis dan
-          komunitas nyata, bukan sekadar demo template.
+          komunitas nyata — bukan sekadar demo template.
         </p>
 
         <div className="mt-12 grid md:grid-cols-2 gap-6">
@@ -51,7 +51,7 @@ export default function CaseStudies() {
               transition={{ duration: 0.55, delay: i * 0.1, ease: "easeOut" }}
               className="glass rounded-2xl p-6 sm:p-7"
             >
-              <span className="eyebrow text-violet-400">{c.tag}</span>
+              <span className="eyebrow text-gold-400">{c.tag}</span>
               <h3 className="font-display font-semibold text-lg text-mist-100 mt-2 mb-5">
                 {c.title}
               </h3>

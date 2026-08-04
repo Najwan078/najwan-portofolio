@@ -23,11 +23,11 @@ const stack = [
   {
     icon: Database,
     label: "Database",
-    detail: "PostgreSQL perancangan skema dan optimasi query.",
+    detail: "PostgreSQL — perancangan skema dan optimasi query.",
   },
   {
     icon: Sparkles,
-    label: "AI & Data",
+    label: "AI & Kreatif",
     detail: "Prompt engineering, AI media generation, data annotation.",
   },
 ];
@@ -35,7 +35,7 @@ const stack = [
 export default function About() {
   return (
     <section id="about" className="relative py-28 px-6 md:px-10 overflow-hidden">
-      <div className="pointer-events-none absolute top-10 left-1/4 h-[320px] w-[320px] rounded-full bg-violet-500/10 blur-[110px]" />
+      <div className="pointer-events-none absolute top-10 left-1/4 h-[320px] w-[320px] rounded-full bg-gold-500/10 blur-[110px]" />
       <div className="pointer-events-none absolute bottom-0 right-10 h-[260px] w-[260px] rounded-full bg-gold-500/10 blur-[100px]" />
 
       <div className="relative mx-auto max-w-6xl">
@@ -49,7 +49,7 @@ export default function About() {
             transition={{ duration: 0.5 }}
           >
             <h2 className="font-display font-bold text-2xl sm:text-3xl text-mist-100 leading-tight mb-6">
-              Mahasiswa Teknik Informatika &amp; Freelance Web Developer
+              Mahasiswa Informatika &amp; Freelance Web Developer
             </h2>
 
             <div className="flex flex-wrap gap-3 mb-7">
@@ -67,17 +67,19 @@ export default function About() {
             <p className="text-mist-400 leading-relaxed">
               Saya <span className="text-mist-100 font-medium">Muhammad Najwan Pratomo</span>,
               mahasiswa <span className="text-mist-100 font-medium">Teknik Informatika di Universitas Pamulang</span>,
-              semester 4, dengan fokus pada pengembangan dan pembuatan website.
+              semester 4, dengan fokus praktis pada struktur data, teori graf,
+              algoritma, dan arsitektur basis data.
             </p>
             <p className="mt-4 text-mist-400 leading-relaxed">
               Sebelum masuk dunia teknologi, saya bekerja di bidang{" "}
-              <span className="text-mist-100 font-medium">F&amp;B dan manufaktur</span> ,pengalaman yang membentuk kebiasaan kerja teliti dan disiplin
+              <span className="text-mist-100 font-medium">F&amp;B dan manufaktur</span> —
+              pengalaman yang membentuk kebiasaan kerja teliti dan disiplin
               terhadap SOP, yang sekarang saya bawa ke pengembangan software.
             </p>
             <p className="mt-4 text-mist-400 leading-relaxed">
               Saat ini saya aktif sebagai{" "}
-              <span className="text-mist-100 font-medium">freelance web developer</span>,
-              mengerjakan proyek untuk klien UMKM dan organisasi mulai dari
+              <span className="text-mist-100 font-medium">freelance web developer dan data annotator</span>,
+              mengerjakan proyek untuk klien UMKM dan organisasi — mulai dari
               landing page sampai sistem berbasis database.
             </p>
           </motion.div>

@@ -24,8 +24,9 @@ export default function Hero() {
             initial="hidden"
             animate="show"
             custom={0}
-            className="eyebrow mb-5 text-violet-400"
+            className="eyebrow mb-5 text-gold-400"
           >
+            {"< hello, saya />"}
           </motion.p>
 
           <motion.h1
@@ -57,8 +58,8 @@ export default function Hero() {
             custom={3}
             className="mt-5 max-w-lg text-mist-400 text-base sm:text-lg leading-relaxed"
           >
-            Saya merancang dan membangun website dari landing page sederhana
-            sampai sistem berbasis database dengan fondasi teknik yang rapi
+            Saya merancang dan membangun website — dari landing page sederhana
+            sampai sistem berbasis database — dengan fondasi teknik yang rapi
             dan sentuhan AI di setiap prosesnya.
           </motion.p>
 

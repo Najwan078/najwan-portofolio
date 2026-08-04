@@ -12,7 +12,7 @@ export default function ProjectCard({ project, delay = 0 }: { project: Project; 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.55, delay, ease: "easeOut" }}
-      className="glass rounded-2xl overflow-hidden hover:border-violet-400/30 transition-colors group"
+      className="glass rounded-2xl overflow-hidden hover:border-gold-400/30 transition-colors group"
     >
       {project.image && (
         <div className="relative w-full h-48 overflow-hidden border-b border-white/10">
@@ -28,7 +28,7 @@ export default function ProjectCard({ project, delay = 0 }: { project: Project; 
 
       <div className="p-6 sm:p-7">
         <div className="flex items-start justify-between mb-4">
-          <span className="eyebrow text-violet-400">
+          <span className="eyebrow text-gold-400">
             #{project.index} · {project.category}
           </span>
           {project.status === "live" && (
