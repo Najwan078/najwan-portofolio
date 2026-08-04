@@ -13,8 +13,34 @@ import {
   SiHtml5,
   SiGithub,
   SiVercel,
-  SiCanvas,
 } from "react-icons/si";
+
+// react-icons dropped the Canva logo (brand takedown request), so this is a
+// small custom SVG badge instead, using Canva's real brand gradient.
+function CanvaIcon({ size = 56 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24">
+      <defs>
+        <linearGradient id="canvaGradient" x1="0" y1="0" x2="24" y2="24">
+          <stop stopColor="#00C4CC" />
+          <stop offset="1" stopColor="#7D2AE8" />
+        </linearGradient>
+      </defs>
+      <circle cx="12" cy="12" r="12" fill="url(#canvaGradient)" />
+      <text
+        x="12"
+        y="16.5"
+        textAnchor="middle"
+        fontFamily="Georgia, serif"
+        fontSize="13"
+        fontWeight="bold"
+        fill="#fff"
+      >
+        C
+      </text>
+    </svg>
+  );
+}
 
 const techStack = [
   { name: "React", Icon: SiReact },
@@ -27,7 +53,7 @@ const techStack = [
   { name: "HTML", Icon: SiHtml5 },
   { name: "GitHub", Icon: SiGithub },
   { name: "Vercel", Icon: SiVercel },
-  { name: "Canvas", Icon: SiCanvas },
+  { name: "Canva", Icon: CanvaIcon, custom: true },
 ];
 
 // group the tech stack into pairs, e.g. [[React, Next.js], [TypeScript, Tailwind], ...]
@@ -43,7 +69,7 @@ export default function Skills() {
   useEffect(() => {
     const id = setInterval(() => {
       setIndex((i) => (i + 1) % pairs.length);
-    }, 2200);
+    }, 3400);
     return () => clearInterval(id);
   }, []);
 
@@ -55,23 +81,27 @@ export default function Skills() {
           Teknologi yang saya pakai
         </h2>
 
-        <div className="flex justify-center items-center min-h-[160px]">
+        <div className="flex justify-center items-center min-h-[220px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.45, ease: "easeOut" }}
+              transition={{ duration: 0.55, ease: "easeOut" }}
               className="flex flex-wrap justify-center gap-6"
             >
               {pairs[index].map((t) => (
                 <div
                   key={t.name}
-                  className="card-solid rounded-2xl px-10 py-8 flex flex-col items-center gap-3 w-44"
+                  className="card-solid rounded-2xl px-14 py-10 flex flex-col items-center gap-4 w-56"
                 >
-                  <t.Icon size={40} className="text-gold-400" />
-                  <span className="text-sm text-mist-300 text-center">{t.name}</span>
+                  {"custom" in t && t.custom ? (
+                    <t.Icon size={56} />
+                  ) : (
+                    <t.Icon size={56} className="text-gold-400" />
+                  )}
+                  <span className="text-base text-mist-200 text-center font-medium">{t.name}</span>
                 </div>
               ))}
             </motion.div>
