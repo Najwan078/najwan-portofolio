@@ -2,20 +2,54 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { Linkedin, Instagram, Github } from "lucide-react";
+import { contact } from "@/lib/data";
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 24, filter: "blur(8px)" },
   show: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, delay: i * 0.12, ease: "easeOut" },
+    filter: "blur(0px)",
+    transition: { duration: 0.7, delay: i * 0.14, ease: "easeOut" },
   }),
 };
+
+const socialLinks = [
+  { href: contact.linkedin, Icon: Linkedin, label: "LinkedIn" },
+  { href: contact.instagram, Icon: Instagram, label: "Instagram" },
+  { href: contact.github, Icon: Github, label: "GitHub" },
+];
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen bg-grid-fade flex items-center pt-24 pb-16 overflow-hidden">
       <div className="pointer-events-none absolute -top-32 right-0 h-[420px] w-[420px] rounded-full bg-gold-500/10 blur-[120px]" />
+
+      {/* vertical social icons, animate in from the left */}
+      <motion.div
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, delay: 0.9, ease: "easeOut" }}
+        className="hidden lg:flex flex-col items-center gap-5 absolute left-8 top-1/2 -translate-y-1/2 z-10"
+      >
+        {socialLinks.map((s, i) => (
+          <motion.a
+            key={s.label}
+            href={s.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={s.label}
+            initial={{ opacity: 0, x: -12 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.4, delay: 1.0 + i * 0.1 }}
+            className="text-mist-400 hover:text-gold-400 transition-colors"
+          >
+            <s.Icon size={18} />
+          </motion.a>
+        ))}
+        <div className="w-px h-16 bg-white/15 mt-1" />
+      </motion.div>
 
       <div className="relative mx-auto max-w-6xl w-full px-6 md:px-10 grid md:grid-cols-[1.15fr_0.85fr] gap-14 items-center">
         <div>
@@ -105,9 +139,9 @@ export default function Hero() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.94 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+          initial={{ opacity: 0, scale: 0.94, filter: "blur(8px)" }}
+          animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
           className="relative mx-auto w-full max-w-sm"
         >
           <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-glow">
