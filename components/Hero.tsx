@@ -1,9 +1,54 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Linkedin, Instagram, Github } from "lucide-react";
 import { contact } from "@/lib/data";
+
+const roles = ["WEB DEVELOPER", "MAHASISWA TEKNIK INFORMATIKA", "FREELANCER"];
+
+function TypewriterRole() {
+  const [wordIndex, setWordIndex] = useState(0);
+  const [text, setText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const current = roles[wordIndex];
+    const typingSpeed = isDeleting ? 35 : 65;
+    const atFullWord = !isDeleting && text === current;
+    const atEmpty = isDeleting && text === "";
+
+    let delay = typingSpeed;
+    if (atFullWord) delay = 1400;
+    if (atEmpty) delay = 300;
+
+    const timeout = setTimeout(() => {
+      if (atFullWord) {
+        setIsDeleting(true);
+        return;
+      }
+      if (atEmpty) {
+        setIsDeleting(false);
+        setWordIndex((i) => (i + 1) % roles.length);
+        return;
+      }
+      const next = isDeleting
+        ? current.slice(0, text.length - 1)
+        : current.slice(0, text.length + 1);
+      setText(next);
+    }, delay);
+
+    return () => clearTimeout(timeout);
+  }, [text, isDeleting, wordIndex]);
+
+  return (
+    <span>
+      {text}
+      <span className="inline-block w-[2px] h-[0.9em] bg-gold-400 ml-0.5 align-middle animate-pulse" />
+    </span>
+  );
+}
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24, filter: "blur(8px)" },
@@ -79,9 +124,9 @@ export default function Hero() {
             initial="hidden"
             animate="show"
             custom={2}
-            className="mt-4 eyebrow text-mist-400 text-sm sm:text-base tracking-wide"
+            className="mt-4 eyebrow text-mist-300 text-lg sm:text-xl tracking-wide"
           >
-            WEB DEVELOPER | FREELANCE | MAHASISWA TEKNIK INFORMATIKA
+            <TypewriterRole />
           </motion.p>
 
           <motion.p
