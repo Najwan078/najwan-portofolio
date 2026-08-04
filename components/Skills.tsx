@@ -13,7 +13,7 @@ import {
   SiHtml5,
   SiGithub,
   SiVercel,
-  SiCanva,
+  SiCanvas,
 } from "react-icons/si";
 
 const techStack = [
@@ -27,7 +27,7 @@ const techStack = [
   { name: "HTML", Icon: SiHtml5 },
   { name: "GitHub", Icon: SiGithub },
   { name: "Vercel", Icon: SiVercel },
-  { name: "Canva", Icon: SiCanva },
+  { name: "Canvas", Icon: SiCanvas },
 ];
 
 // group the tech stack into pairs, e.g. [[React, Next.js], [TypeScript, Tailwind], ...]
