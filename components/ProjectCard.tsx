@@ -1,26 +1,35 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Github } from "lucide-react";
 import type { Project } from "@/lib/data";
 
 export default function ProjectCard({ project, delay = 0 }: { project: Project; delay?: number }) {
+  const [loaded, setLoaded] = useState(false);
+
   return (
     <motion.article
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={{ once: false, margin: "-80px" }}
       transition={{ duration: 0.55, delay, ease: "easeOut" }}
       className="card-solid rounded-2xl overflow-hidden hover:border-gold-400/30 transition-colors group"
     >
       {project.image && (
-        <div className="relative w-full h-48 overflow-hidden border-b border-white/10">
+        <div className="relative w-full h-48 overflow-hidden border-b border-white/10 bg-ink-800">
+          {!loaded && (
+            <div className="absolute inset-0 animate-pulse bg-gradient-to-r from-ink-800 via-ink-700 to-ink-800 bg-[length:200%_100%]" />
+          )}
           <Image
             src={project.image}
             alt={project.title}
             fill
-            className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+            onLoad={() => setLoaded(true)}
+            className={`object-cover object-top transition-all duration-500 group-hover:scale-105 ${
+              loaded ? "opacity-100" : "opacity-0"
+            }`}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink-900/80 via-transparent to-transparent" />
         </div>

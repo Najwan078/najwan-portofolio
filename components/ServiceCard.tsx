@@ -10,7 +10,7 @@ export default function ServiceCard({ service, delay = 0 }: { service: Service; 
     <motion.div
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={{ once: false, margin: "-80px" }}
       transition={{ duration: 0.55, delay, ease: "easeOut" }}
       className={`relative rounded-2xl p-7 flex flex-col ${
         service.featured

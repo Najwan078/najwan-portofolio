@@ -3,8 +3,9 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Linkedin, Instagram, Github } from "lucide-react";
+import { Linkedin, Instagram, Github, FileText } from "lucide-react";
 import { contact } from "@/lib/data";
+import MagneticButton from "./MagneticButton";
 
 const roles = ["WEB DEVELOPER", "MAHASISWA TEKNIK INFORMATIKA", "FREELANCER"];
 
@@ -137,7 +138,7 @@ export default function Hero() {
             className="mt-5 max-w-lg text-mist-400 text-base sm:text-lg leading-relaxed"
           >
             Saya merancang dan membangun website dari landing page sederhana
-            sampai sistem berbasis database dengan struktur teknik yang rapi
+            sampai sistem berbasis database dengan fondasi teknik yang rapi
           </motion.p>
 
           <motion.div
@@ -147,18 +148,32 @@ export default function Hero() {
             custom={4}
             className="mt-9 flex flex-wrap items-center gap-4"
           >
-            <a
-              href="#contact"
-              className="inline-flex items-center rounded-full bg-gold-500 px-6 py-3 text-sm font-semibold text-ink-950 hover:bg-gold-400 transition-colors shadow-glow"
-            >
-              Hubungi Saya
-            </a>
-            <a
-              href="#projects"
-              className="inline-flex items-center rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-mist-100 hover:border-gold-400/60 hover:text-gold-400 transition-colors"
-            >
-              Lihat Projects
-            </a>
+            <MagneticButton>
+              <a
+                href="#contact"
+                className="inline-flex items-center rounded-full bg-gold-500 px-6 py-3 text-sm font-semibold text-ink-950 hover:bg-gold-400 transition-colors shadow-glow"
+              >
+                Hubungi Saya
+              </a>
+            </MagneticButton>
+            <MagneticButton>
+              <a
+                href="#projects"
+                className="inline-flex items-center rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-mist-100 hover:border-gold-400/60 hover:text-gold-400 transition-colors"
+              >
+                Lihat Projects
+              </a>
+            </MagneticButton>
+            <MagneticButton>
+              <a
+                href="/cv/CV_Muhammad_Najwan_Pratomo.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-mist-100 hover:border-gold-400/60 hover:text-gold-400 transition-colors"
+              >
+                <FileText size={15} /> Lihat CV
+              </a>
+            </MagneticButton>
           </motion.div>
 
           <motion.div

@@ -46,7 +46,7 @@ export default function CaseStudies() {
               key={c.title}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
+              viewport={{ once: false, margin: "-80px" }}
               transition={{ duration: 0.55, delay: i * 0.1, ease: "easeOut" }}
               className="card-solid rounded-2xl p-6 sm:p-7"
             >

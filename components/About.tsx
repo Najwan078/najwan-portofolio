@@ -44,7 +44,7 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
+            viewport={{ once: false, margin: "-60px" }}
             transition={{ duration: 0.5 }}
           >
             <h2 className="font-display font-bold text-2xl sm:text-3xl text-mist-100 leading-tight mb-6">
@@ -82,7 +82,7 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
+            viewport={{ once: false, margin: "-60px" }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <h2 className="font-display font-bold text-2xl sm:text-3xl text-mist-100 leading-tight mb-6">
@@ -99,7 +99,7 @@ export default function About() {
                   key={pr.label}
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-60px" }}
+                  viewport={{ once: false, margin: "-60px" }}
                   transition={{ duration: 0.4, delay: 0.1 + i * 0.08 }}
                   className="card-solid rounded-xl p-4 hover:border-l-gold-400 transition-colors"
                 >

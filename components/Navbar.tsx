@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { contact } from "@/lib/data";
+import MagneticButton from "./MagneticButton";
 
 const links = [
   { href: "#about", label: "Tentang" },
@@ -59,14 +60,16 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <a
-          href={`https://wa.me/${contact.whatsapp}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hidden md:inline-flex items-center gap-1.5 rounded-full bg-gold-500 px-5 py-2 text-sm font-semibold text-ink-950 hover:bg-gold-400 transition-colors"
-        >
-          LET&apos;S TALK <ArrowRight size={15} />
-        </a>
+        <MagneticButton className="hidden md:inline-block" strength={0.25}>
+          <a
+            href={`https://wa.me/${contact.whatsapp}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-full bg-gold-500 px-5 py-2 text-sm font-semibold text-ink-950 hover:bg-gold-400 transition-colors"
+          >
+            LET&apos;S TALK <ArrowRight size={15} />
+          </a>
+        </MagneticButton>
 
         {/* mobile menu toggle */}
         <button
