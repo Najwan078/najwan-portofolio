@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { Linkedin, Instagram, Github, FileText } from "lucide-react";
 import { contact } from "@/lib/data";
 import MagneticButton from "./MagneticButton";
+import AnimatedBackground from "./AnimatedBackground";
 
 const roles = ["WEB DEVELOPER", "MAHASISWA TEKNIK INFORMATIKA", "FREELANCER"];
 
@@ -69,8 +70,8 @@ const socialLinks = [
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen bg-grid-fade flex items-center pt-24 pb-16 overflow-hidden">
-      <div className="pointer-events-none absolute -top-32 right-0 h-[420px] w-[420px] rounded-full bg-gold-500/10 blur-[120px]" />
+    <section className="relative min-h-screen flex items-center pt-24 pb-0 overflow-hidden" style={{ background: "#08080D" }}>
+      <AnimatedBackground />
 
       {/* vertical social icons, animate in from the left */}
       <motion.div
@@ -97,8 +98,8 @@ export default function Hero() {
         <div className="w-px h-16 bg-white/15 mt-1" />
       </motion.div>
 
-      <div className="relative mx-auto max-w-6xl w-full px-6 md:px-10 grid md:grid-cols-[1.15fr_0.85fr] gap-14 items-center">
-        <div>
+      <div className="relative z-10 mx-auto max-w-6xl w-full px-6 md:px-10 flex items-center min-h-screen">
+        <div className="w-full md:w-1/2">
           <motion.p
             variants={fadeUp}
             initial="hidden"
@@ -197,26 +198,29 @@ export default function Hero() {
             </div>
           </motion.div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.94, filter: "blur(8px)" }}
-          animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-          className="relative mx-auto w-full max-w-sm"
-        >
-          <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-glow">
-            <Image
-              src="/profile.jpg"
-              alt="Muhammad Najwan Pratomo"
-              width={480}
-              height={560}
-              className="w-full h-[420px] object-cover"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-transparent to-transparent" />
-          </div>
-        </motion.div>
       </div>
+
+      {/* ── Foto: absolute, full height, kanan layar ── */}
+      <motion.div
+        initial={{ opacity: 0, x: 80, filter: "blur(12px)" }}
+        animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+        transition={{ duration: 1.0, delay: 0.2, ease: "easeOut" }}
+        className="hidden md:block absolute right-0 top-0 bottom-0 z-10"
+        style={{ width: "48%" }}
+      >
+        {/* Glow emas samar di belakang foto */}
+        <div className="absolute bottom-0 right-0 w-[400px] h-[500px] rounded-full bg-gold-500/10 blur-[100px] pointer-events-none" />
+
+        <Image
+          src="/profile.png"
+          alt="Muhammad Najwan Pratomo"
+          width={560}
+          height={720}
+          className="absolute bottom-0 right-0 h-[88vh] max-h-[760px] w-auto object-contain object-bottom"
+          style={{ mixBlendMode: "screen" }}
+          priority
+        />
+      </motion.div>
     </section>
   );
 }

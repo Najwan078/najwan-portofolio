@@ -19,16 +19,27 @@ export default function Home() {
   return (
     <main className="relative">
       <CursorSpotlight />
+
+      {/* ── Intro video overlay ── */}
       {!introDone && <IntroDoor onComplete={() => setIntroDone(true)} />}
-      <Navbar />
-      <Hero />
-      <About />
-      <Projects />
-      <CaseStudies />
-      <Skills />
-      <Services />
-      <Contact />
-      <Footer />
+
+      {/* ── Konten utama: fade-in setelah intro selesai ── */}
+      <div
+        style={{
+          opacity: introDone ? 1 : 0,
+          transition: introDone ? "opacity 0.8s ease-in-out" : "none",
+        }}
+      >
+        <Navbar />
+        <Hero />
+        <About />
+        <Projects />
+        <CaseStudies />
+        <Skills />
+        <Services />
+        <Contact />
+        <Footer />
+      </div>
     </main>
   );
 }

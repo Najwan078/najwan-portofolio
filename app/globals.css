@@ -69,3 +69,47 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+/* ── Gate Screen Animations ── */
+@keyframes beam-rotate {
+  0%   { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes beam-rotate-reverse {
+  0%   { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(-360deg); }
+}
+
+@keyframes streak-sweep {
+  0%   { transform: translateX(-120%) skewX(-15deg); opacity: 0; }
+  20%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { transform: translateX(120vw) skewX(-15deg); opacity: 0; }
+}
+
+@keyframes gate-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+@keyframes gate-glow-pulse {
+  0%, 100% { opacity: 0.18; transform: scale(1); }
+  50%       { opacity: 0.35; transform: scale(1.12); }
+}
+
+@keyframes gate-ring-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(212,175,122,0.4); }
+  70%  { box-shadow: 0 0 0 18px rgba(212,175,122,0); }
+  100% { box-shadow: 0 0 0 0 rgba(212,175,122,0); }
+}
+
+@keyframes gate-fade-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes grid-scroll {
+  0%   { background-position: 0 0; }
+  100% { background-position: 0 60px; }
+}
