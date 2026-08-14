@@ -91,14 +91,14 @@ export default function Skills() {
               {pairs[index].map((t) => (
                 <div
                   key={t.name}
-                  className="card-solid rounded-2xl px-14 py-10 flex flex-col items-center gap-4 w-56"
+                  className="card-solid rounded-2xl px-8 py-8 sm:px-14 sm:py-10 flex flex-col items-center gap-3 w-36 sm:w-56"
                 >
                   {"custom" in t && t.custom ? (
-                    <t.Icon size={56} />
+                    <t.Icon size={44} />
                   ) : (
-                    <t.Icon size={56} className="text-gold-400" />
+                    <t.Icon size={44} className="text-gold-400" />
                   )}
-                  <span className="text-base text-mist-200 text-center font-medium">{t.name}</span>
+                  <span className="text-sm sm:text-base text-mist-200 text-center font-medium">{t.name}</span>
                 </div>
               ))}
             </motion.div>

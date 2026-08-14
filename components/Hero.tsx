@@ -70,7 +70,7 @@ const socialLinks = [
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-24 pb-0 overflow-hidden" style={{ background: "#08080D" }}>
+    <section className="relative min-h-screen flex items-center overflow-hidden" style={{ background: "#08080D" }}>
       <AnimatedBackground />
 
       {/* vertical social icons, animate in from the left */}
@@ -98,8 +98,9 @@ export default function Hero() {
         <div className="w-px h-16 bg-white/15 mt-1" />
       </motion.div>
 
-      <div className="relative z-10 mx-auto max-w-6xl w-full px-6 md:px-10 flex items-center min-h-screen">
-        <div className="w-full md:w-1/2">
+      <div className="relative z-10 mx-auto max-w-6xl w-full px-6 md:px-10 flex flex-col md:flex-row items-center justify-between min-h-screen gap-6 md:gap-8 pt-24 md:pt-0">
+        {/* ── Teks kiri ── */}
+        <div className="w-full md:w-1/2 flex-shrink-0 order-2 md:order-1">
           <motion.p
             variants={fadeUp}
             initial="hidden"
@@ -114,7 +115,7 @@ export default function Hero() {
             initial="hidden"
             animate="show"
             custom={1}
-            className="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-mist-100"
+            className="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-mist-100"
           >
             MUHAMMAD
             <br />
@@ -136,7 +137,7 @@ export default function Hero() {
             initial="hidden"
             animate="show"
             custom={3}
-            className="mt-5 max-w-lg text-mist-400 text-base sm:text-lg leading-relaxed"
+            className="mt-5 max-w-lg text-mist-400 text-sm sm:text-lg leading-relaxed"
           >
             Saya merancang dan membangun website dari landing page sederhana
             sampai sistem berbasis database dengan fondasi teknik yang rapi
@@ -147,7 +148,7 @@ export default function Hero() {
             initial="hidden"
             animate="show"
             custom={4}
-            className="mt-9 flex flex-wrap items-center gap-4"
+            className="mt-7 flex flex-wrap items-center gap-3"
           >
             <MagneticButton>
               <a
@@ -182,45 +183,45 @@ export default function Hero() {
             initial="hidden"
             animate="show"
             custom={5}
-            className="mt-12 flex items-center gap-8 border-t border-white/10 pt-6 max-w-md"
+            className="mt-8 flex items-center gap-6 border-t border-white/10 pt-5 w-full max-w-md"
           >
             <div>
-              <p className="font-display font-bold text-2xl text-mist-100">4</p>
-              <p className="eyebrow text-mist-400 mt-1">Project Selesai</p>
+              <p className="font-display font-bold text-xl sm:text-2xl text-mist-100">4</p>
+              <p className="eyebrow text-mist-400 mt-1 text-[10px] sm:text-xs">Project Selesai</p>
             </div>
             <div>
-              <p className="font-display font-bold text-2xl text-mist-100">1</p>
-              <p className="eyebrow text-mist-400 mt-1">Tahun Freelance</p>
+              <p className="font-display font-bold text-xl sm:text-2xl text-mist-100">1</p>
+              <p className="eyebrow text-mist-400 mt-1 text-[10px] sm:text-xs">Tahun Freelance</p>
             </div>
             <div>
-              <p className="font-display font-bold text-2xl text-mist-100">4</p>
-              <p className="eyebrow text-mist-400 mt-1">Semester Kuliah</p>
+              <p className="font-display font-bold text-xl sm:text-2xl text-mist-100">4</p>
+              <p className="eyebrow text-mist-400 mt-1 text-[10px] sm:text-xs">Semester Kuliah</p>
             </div>
           </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20, filter: "blur(12px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 1.0, delay: 0.2, ease: "easeOut" }}
+          className="flex flex-col items-center justify-center flex-shrink-0 relative order-1 md:order-2 w-full md:w-[48%]"
+        >
+          {/* Glow emas samar di belakang foto */}
+          <div
+            className="absolute inset-0 rounded-full blur-[140px] pointer-events-none"
+            style={{ background: "radial-gradient(ellipse, rgba(212,175,55,0.20) 0%, transparent 70%)" }}
+          />
+
+          <Image
+            src="/profile_nobg.png"
+            alt="Muhammad Najwan Pratomo"
+            width={829}
+            height={898}
+            className="relative w-[200px] sm:w-[280px] md:w-full md:max-w-[560px] h-auto object-contain drop-shadow-[0_8px_40px_rgba(0,0,0,0.6)]"
+            priority
+          />
+        </motion.div>
       </div>
-
-      {/* ── Foto: absolute, full height, kanan layar ── */}
-      <motion.div
-        initial={{ opacity: 0, x: 80, filter: "blur(12px)" }}
-        animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-        transition={{ duration: 1.0, delay: 0.2, ease: "easeOut" }}
-        className="hidden md:block absolute right-0 top-0 bottom-0 z-10"
-        style={{ width: "48%" }}
-      >
-        {/* Glow emas samar di belakang foto */}
-        <div className="absolute bottom-0 right-0 w-[400px] h-[500px] rounded-full bg-gold-500/10 blur-[100px] pointer-events-none" />
-
-        <Image
-          src="/profile.png"
-          alt="Muhammad Najwan Pratomo"
-          width={560}
-          height={720}
-          className="absolute bottom-0 right-0 h-[88vh] max-h-[760px] w-auto object-contain object-bottom"
-          style={{ mixBlendMode: "screen" }}
-          priority
-        />
-      </motion.div>
     </section>
   );
 }

@@ -11,6 +11,11 @@ body {
   color: #EDEDF4;
 }
 
+p {
+  text-align: justify;
+  hyphens: auto;
+}
+
 ::selection {
   background-color: rgba(212, 175, 122, 0.3);
   color: #EDEDF4;
@@ -112,4 +117,14 @@ body {
 @keyframes grid-scroll {
   0%   { background-position: 0 0; }
   100% { background-position: 0 60px; }
+}
+
+/* ── Hero Profile Image: mask agar tepi fade ke background ── */
+.hero-profile-img {
+  -webkit-mask-image: radial-gradient(ellipse 85% 90% at 55% 52%, black 50%, rgba(0,0,0,0.6) 68%, transparent 88%);
+  mask-image: radial-gradient(ellipse 85% 90% at 55% 52%, black 50%, rgba(0,0,0,0.6) 68%, transparent 88%);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
 }

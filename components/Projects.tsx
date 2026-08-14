@@ -15,7 +15,7 @@ function ProjectCard({ project }: { project: Project }) {
     <article
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="relative flex-shrink-0 w-[340px] sm:w-[380px] rounded-2xl overflow-hidden card-solid transition-all duration-300"
+      className="relative flex-shrink-0 w-[85vw] sm:w-[340px] md:w-[380px] rounded-2xl overflow-hidden card-solid transition-all duration-300"
       style={{
         boxShadow: hovered ? "0 0 0 1px rgba(212,175,122,0.35), 0 20px 60px rgba(0,0,0,0.5)" : undefined,
         transform: hovered ? "translateY(-6px)" : "translateY(0)",
