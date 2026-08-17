@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { Linkedin, Instagram, Github, FileText } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Linkedin, Instagram, Github, FileText, ChevronDown, Globe } from "lucide-react";
 import { contact } from "@/lib/data";
 import MagneticButton from "./MagneticButton";
 import AnimatedBackground from "./AnimatedBackground";
@@ -68,7 +68,40 @@ const socialLinks = [
   { href: contact.github, Icon: Github, label: "GitHub" },
 ];
 
+const cvOptions = [
+  {
+    label: "CV Design",
+    sublabel: "Full layout",
+    href: "/cv/CV_Muhammad_Najwan_Pratomo.pdf",
+    icon: FileText,
+  },
+  {
+    label: "ATS — Indonesia",
+    sublabel: "Bahasa Indonesia",
+    href: "/cv/CV%20ATS%20Muhammad%20Najwan%20Pratomo%20%28Indonesia%29.pdf",
+    icon: Globe,
+  },
+  {
+    label: "ATS — English",
+    sublabel: "English version",
+    href: "/cv/CV%20ATS%20Muhammad%20Najwan%20Pratomo%20%28English%29.pdf",
+    icon: Globe,
+  },
+];
+
 export default function Hero() {
+  const [cvOpen, setCvOpen] = useState(false);
+  const cvRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (cvRef.current && !cvRef.current.contains(e.target as Node)) {
+        setCvOpen(false);
+      }
+    }
+    if (cvOpen) document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [cvOpen]);
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden" style={{ background: "#08080D" }}>
       <AnimatedBackground />
@@ -166,16 +199,53 @@ export default function Hero() {
                 Lihat Projects
               </a>
             </MagneticButton>
-            <MagneticButton>
-              <a
-                href="/cv/CV_Muhammad_Najwan_Pratomo.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-mist-100 hover:border-gold-400/60 hover:text-gold-400 transition-colors"
+            {/* ── CV Dropdown ── */}
+            <div ref={cvRef} className="relative">
+              <button
+                onClick={() => setCvOpen((v) => !v)}
+                className="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-mist-100 hover:border-gold-400/60 hover:text-gold-400 transition-colors cursor-pointer"
               >
-                <FileText size={15} /> Lihat CV
-              </a>
-            </MagneticButton>
+                <FileText size={15} />
+                Lihat CV
+                <ChevronDown
+                  size={13}
+                  className={`transition-transform duration-200 ${
+                    cvOpen ? "rotate-180" : "rotate-0"
+                  }`}
+                />
+              </button>
+
+              <AnimatePresence>
+                {cvOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -8, scale: 0.97 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -8, scale: 0.97 }}
+                    transition={{ duration: 0.18, ease: "easeOut" }}
+                    className="absolute left-0 top-full mt-2 z-50 min-w-[220px] rounded-2xl border border-white/10 bg-ink-800 shadow-glow overflow-hidden"
+                  >
+                    {cvOptions.map((opt, i) => (
+                      <a
+                        key={i}
+                        href={opt.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setCvOpen(false)}
+                        className="flex items-center gap-3 px-4 py-3 text-sm text-mist-100 hover:bg-white/5 hover:text-gold-400 transition-colors group"
+                      >
+                        <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-white/5 group-hover:bg-gold-500/10 transition-colors">
+                          <opt.icon size={14} className="text-mist-400 group-hover:text-gold-400 transition-colors" />
+                        </span>
+                        <span className="flex flex-col">
+                          <span className="font-medium leading-tight">{opt.label}</span>
+                          <span className="text-[11px] text-mist-400 leading-tight mt-0.5">{opt.sublabel}</span>
+                        </span>
+                      </a>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </motion.div>
 
           <motion.div
