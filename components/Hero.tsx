@@ -115,7 +115,7 @@ export default function Hero() {
             initial="hidden"
             animate="show"
             custom={1}
-            className="font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-mist-100"
+            className="font-display font-bold text-2xl sm:text-4xl lg:text-5xl leading-[1.1] tracking-tight text-mist-100"
           >
             MUHAMMAD
             <br />

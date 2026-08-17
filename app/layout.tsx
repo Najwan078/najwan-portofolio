@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Inter, JetBrains_Mono } from "next/font/google";
+import { Space_Mono, Public_Sans, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
-const display = Plus_Jakarta_Sans({
+const display = Space_Mono({
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
+  weight: ["400", "700"],
   variable: "--font-display",
 });
 
-const body = Inter({
+const body = Public_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   variable: "--font-body",

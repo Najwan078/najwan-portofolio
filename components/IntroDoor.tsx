@@ -190,7 +190,7 @@ export default function IntroDoor({ onComplete }: { onComplete: () => void }) {
 
           {/* ── Logo NP floating ── */}
           <div
-            className="relative z-10 font-display font-extrabold tracking-widest select-none"
+            className="relative z-10 font-display font-bold tracking-widest select-none"
             style={{
               fontSize: "clamp(5rem, 14vw, 10rem)",
               background: "linear-gradient(135deg, #F0D88A 0%, #D4AF7A 45%, #B8925A 80%, #E8C989 100%)",

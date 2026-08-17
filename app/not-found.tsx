@@ -5,7 +5,7 @@ export default function NotFound() {
     <main className="min-h-screen bg-ink-950 bg-grid-fade flex items-center justify-center px-6">
       <div className="text-center max-w-md">
         <p className="eyebrow bracket mb-6 text-gold-400">error 404</p>
-        <h1 className="font-display font-extrabold text-6xl sm:text-7xl text-mist-100 mb-4">
+        <h1 className="font-display font-bold text-6xl sm:text-7xl text-mist-100 mb-4">
           Halaman <span className="text-gradient-gold">Hilang</span>
         </h1>
         <p className="text-mist-400 leading-relaxed mb-9">
