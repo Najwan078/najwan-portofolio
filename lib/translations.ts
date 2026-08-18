@@ -1,0 +1,228 @@
+﻿export type Lang = 'id' | 'en';
+
+export type BioSegment = { text: string; h: boolean };
+
+export const t = {
+  id: {
+    nav: {
+      about: 'Tentang',
+      projects: 'Projects',
+      skills: 'Skills',
+      services: 'Layanan',
+      contact: 'Kontak',
+    },
+    hero: {
+      roles: ['WEB DEVELOPER', 'MAHASISWA TEKNIK INFORMATIKA', 'FREELANCER'],
+      desc: 'Saya merancang dan membangun website dari landing page sederhana sampai sistem berbasis database dengan fondasi teknik yang rapi',
+      cta: { contact: 'Hubungi Saya', projects: 'Lihat Projects', cv: 'Lihat CV' },
+      stats: { projects: 'Project Selesai', freelance: 'Tahun Freelance', semester: 'Semester Kuliah' },
+    },
+    about: {
+      heading1: 'Mahasiswa Teknik Informatika & Freelance Web Developer',
+      bio: [
+        [
+          { text: 'Saya ', h: false },
+          { text: 'Muhammad Najwan Pratomo', h: true },
+          { text: ', mahasiswa ', h: false },
+          { text: 'Teknik Informatika di Universitas Pamulang', h: true },
+          { text: ', semester 4, dengan fokus pada pengembangan web dan pemrograman berbasis data. Saya memiliki ketertarikan yang kuat pada teknologi, terutama dalam membangun aplikasi web yang efisien dan user-friendly.', h: false },
+        ],
+        [
+          { text: 'Sebelum masuk dunia teknologi, saya bekerja di bidang ', h: false },
+          { text: 'F&B dan manufaktur', h: true },
+          { text: ', pengalaman yang membentuk kebiasaan kerja teliti dan disiplin terhadap SOP, yang sekarang saya bawa ke pengembangan software.', h: false },
+        ],
+        [
+          { text: 'Saat ini saya aktif sebagai ', h: false },
+          { text: 'freelance web developer', h: true },
+          { text: ', mengerjakan proyek untuk klien UMKM dan organisasi mulai dari landing page sampai sistem berbasis database.', h: false },
+        ],
+      ] as BioSegment[][],
+      facts: [
+        { label: 'semester 4', value: 'Universitas Pamulang' },
+        { label: 'background', value: 'F&B \u2192 Tech' },
+        { label: 'status', value: 'Freelance' },
+      ],
+      heading2: 'Cara Saya Kerja',
+      sub2: 'Empat prinsip yang saya pegang di setiap project, dari yang kecil sampai yang paling kompleks.',
+      principles: [
+        { label: 'Kode', detail: 'Terstruktur, mudah dibaca, dan gampang di maintain jangka panjang.' },
+        { label: 'Detail-Oriented', detail: 'Kebiasaan dari kerja SOP ketat — teliti di setiap langkah pengerjaan.' },
+        { label: 'Deadline', detail: 'Terbiasa kerja cepat dan tetap presisi di bawah tekanan waktu.' },
+        { label: 'Terus Belajar', detail: 'Aktif eksplorasi tools dan teknik baru, termasuk AI & prompt engineering.' },
+      ],
+    },
+    caseStudies: {
+      heading: 'Studi Kasus',
+      desc: 'Dua project mandiri ini dibangun sebagai simulasi kebutuhan bisnis dan komunitas nyata — bukan sekadar demo template.',
+      tag: 'project mandiri',
+      labels: { problem: 'masalah', solution: 'solusi', outcome: 'hasil' },
+      cta: 'Lihat Live Demo',
+      cases: [
+        {
+          title: 'BrewCraft — Coffee Shop Website',
+          problem: 'Banyak UMKM F&B skala kecil belum punya website sendiri — cuma mengandalkan Instagram dan WhatsApp. Calon pelanggan baru jadi sulit lihat menu lengkap atau kenal profil bisnisnya sebelum datang langsung.',
+          solution: 'Sebagai simulasi kebutuhan itu, aku bangun website interaktif lengkap dengan menu berkategori, filter produk, galeri proses dari kebun ke cangkir, dan form pemesanan.',
+          outcome: 'Project ini jadi contoh nyata kemampuanku membangun etalase digital untuk bisnis F&B dari struktur, desain, sampai interaksi frontendnya.',
+          liveUrl: 'https://brewcraft-coffe.netlify.app',
+        },
+        {
+          title: 'Masjid An-Nadzom — Sistem Manajemen Digital',
+          problem: 'Di banyak masjid, informasi jadwal sholat dan jadwal Jumat masih disampaikan manual lewat papan tulis atau pengumuman langsung. Jamaah yang tidak sempat hadir jadi ketinggalan info.',
+          solution: "Saya bangun sistem digital dengan jadwal sholat & Jumat otomatis, informasi hari raya, dan fitur baca Al-Qur'an online — semua bisa diakses dari HP kapan saja.",
+          outcome: 'Project ini jadi contoh sistem full-stack (Django + CSS) yang siap dipakai masjid atau organisasi mana pun yang butuh solusi serupa.',
+          liveUrl: 'https://masjid-annadzom.vercel.app',
+        },
+      ],
+    },
+    skills: { heading: 'Skills & Technologies' },
+    projects: {
+      heading: 'Projects',
+      desc: 'Dari sistem akademik, Landing page, website bisnis, sampai platform komunitas.',
+      liveDemo: 'Live Demo',
+      sourceCode: 'Source Code',
+    },
+    services: {
+      heading: 'Layanan yang saya tawarkan',
+      desc: 'Jasa pembuatan landing page, website dan aplikasi. Cocok untuk UMKM, organisasi, sekolah, dan tim.',
+      badge: 'populer',
+      cta: 'Pilih Paket',
+    },
+    contact: {
+      heading: 'Punya kebutuhan',
+      headingHighlight: 'website',
+      headingEnd: '?',
+      desc: 'Cocok untuk UMKM, masjid/organisasi, sekolah kecil, atau tim yang butuh tools internal. Mari berdiskusi dulu, gratis.',
+      success: {
+        title: 'Email terkirim! \ud83c\udf89',
+        desc: 'Terima kasih! Saya akan membalas secepatnya.',
+        again: 'Kirim pesan lain',
+      },
+      form: { name: 'Nama kamu *', email: 'Email kamu *', message: 'Ceritakan kebutuhan website anda... *' },
+      send: 'Kirim Email',
+      sending: 'Mengirim...',
+      whatsapp: 'Kirim via WhatsApp',
+      errors: {
+        required: 'Nama, email, dan pesan wajib diisi.',
+        email: 'Format email tidak valid.',
+        generic: 'Terjadi kesalahan. Coba lagi.',
+        server: 'Gagal mengirim.',
+      },
+      waPrefix: 'Halo Najwan, nama saya ',
+      waMid: '. ',
+      waDefault: 'Saya ingin konsultasi soal website.',
+    },
+    footer: { label: 'Portofolio' },
+  },
+  en: {
+    nav: {
+      about: 'About',
+      projects: 'Projects',
+      skills: 'Skills',
+      services: 'Services',
+      contact: 'Contact',
+    },
+    hero: {
+      roles: ['WEB DEVELOPER', 'INFORMATICS STUDENT', 'FREELANCER'],
+      desc: 'I design and build websites from simple landing pages to database-powered systems with a solid technical foundation',
+      cta: { contact: 'Contact Me', projects: 'View Projects', cv: 'View CV' },
+      stats: { projects: 'Projects Done', freelance: 'Year Freelancing', semester: 'Semester' },
+    },
+    about: {
+      heading1: 'Informatics Student & Freelance Web Developer',
+      bio: [
+        [
+          { text: 'I am ', h: false },
+          { text: 'Muhammad Najwan Pratomo', h: true },
+          { text: ', an Informatics Engineering student at ', h: false },
+          { text: 'Universitas Pamulang', h: true },
+          { text: ', 4th semester, with a focus on web development and data-driven programming. I have a strong passion for technology, particularly in building efficient and user-friendly web applications.', h: false },
+        ],
+        [
+          { text: 'Before entering the tech world, I worked in the ', h: false },
+          { text: 'F&B and manufacturing industries', h: true },
+          { text: ' \u2014 an experience that shaped my meticulous work habits and strict adherence to SOPs, which I now bring to software development.', h: false },
+        ],
+        [
+          { text: 'I am currently active as a ', h: false },
+          { text: 'freelance web developer', h: true },
+          { text: ', working on projects for MSME clients and organizations ranging from landing pages to database-driven systems.', h: false },
+        ],
+      ] as BioSegment[][],
+      facts: [
+        { label: 'semester 4', value: 'Universitas Pamulang' },
+        { label: 'background', value: 'F&B \u2192 Tech' },
+        { label: 'status', value: 'Freelance' },
+      ],
+      heading2: 'How I Work',
+      sub2: 'Four principles I uphold in every project, from the smallest to the most complex.',
+      principles: [
+        { label: 'Clean Code', detail: 'Structured, readable, and easy to maintain in the long run.' },
+        { label: 'Detail-Oriented', detail: 'A habit built from strict SOP environments \u2014 careful at every step.' },
+        { label: 'On-Time Delivery', detail: 'Used to working fast while staying precise under time pressure.' },
+        { label: 'Always Learning', detail: 'Actively exploring new tools and techniques, including AI & prompt engineering.' },
+      ],
+    },
+    caseStudies: {
+      heading: 'Case Studies',
+      desc: 'These two self-initiated projects were built to simulate real business and community needs \u2014 not just template demos.',
+      tag: 'self-initiated',
+      labels: { problem: 'problem', solution: 'solution', outcome: 'outcome' },
+      cta: 'View Live Demo',
+      cases: [
+        {
+          title: 'BrewCraft \u2014 Coffee Shop Website',
+          problem: 'Many small F&B businesses rely solely on Instagram and WhatsApp without a proper website. Potential customers struggle to see the full menu or learn about the business before visiting.',
+          solution: 'I built an interactive website featuring a categorized menu, product filters, a farm-to-cup gallery, and an order form \u2014 simulating a real digital storefront.',
+          outcome: 'This project demonstrates my ability to build a complete digital storefront for F&B businesses, from structure and design to frontend interactions.',
+          liveUrl: 'https://brewcraft-coffe.netlify.app',
+        },
+        {
+          title: 'Masjid An-Nadzom \u2014 Digital Management System',
+          problem: 'In many mosques, prayer schedules and Friday sermon info are still shared manually via blackboards or announcements. Members who miss attendance end up missing important updates.',
+          solution: "I built a digital system with automatic prayer & Friday schedules, holiday information, and online Quran reading \u2014 all accessible from a smartphone anytime.",
+          outcome: 'This project demonstrates a full-stack system (Django + CSS) ready to be used by any mosque or organization needing a similar solution.',
+          liveUrl: 'https://masjid-annadzom.vercel.app',
+        },
+      ],
+    },
+    skills: { heading: 'Skills & Technologies' },
+    projects: {
+      heading: 'Projects',
+      desc: 'From academic systems, landing pages, and business websites to community platforms.',
+      liveDemo: 'Live Demo',
+      sourceCode: 'Source Code',
+    },
+    services: {
+      heading: 'Services I Offer',
+      desc: 'Landing page, website and web application development. Perfect for small businesses, organizations, schools, and teams.',
+      badge: 'popular',
+      cta: 'Choose Plan',
+    },
+    contact: {
+      heading: 'Need a',
+      headingHighlight: 'website',
+      headingEnd: '?',
+      desc: "Perfect for small businesses, mosques/organizations, small schools, or teams that need internal tools. Let's discuss first, for free.",
+      success: {
+        title: 'Email sent! \ud83c\udf89',
+        desc: "Thank you! I'll reply as soon as possible.",
+        again: 'Send another message',
+      },
+      form: { name: 'Your name *', email: 'Your email *', message: 'Tell me about your website needs... *' },
+      send: 'Send Email',
+      sending: 'Sending...',
+      whatsapp: 'Send via WhatsApp',
+      errors: {
+        required: 'Name, email, and message are required.',
+        email: 'Invalid email format.',
+        generic: 'An error occurred. Please try again.',
+        server: 'Failed to send.',
+      },
+      waPrefix: 'Hi Najwan, my name is ',
+      waMid: '. ',
+      waDefault: 'I would like to discuss a website project.',
+    },
+    footer: { label: 'Portfolio' },
+  },
+};

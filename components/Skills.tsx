@@ -1,19 +1,13 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
-  SiReact,
-  SiNextdotjs,
-  SiTypescript,
-  SiTailwindcss,
-  SiPython,
-  SiFlask,
-  SiDjango,
-  SiHtml5,
-  SiGithub,
-  SiVercel,
+  SiReact, SiNextdotjs, SiTypescript, SiTailwindcss,
+  SiPython, SiFlask, SiDjango, SiHtml5, SiGithub, SiVercel,
 } from "react-icons/si";
+import { useLanguage } from "@/context/LanguageContext";
+import { t } from "@/lib/translations";
 
 function CanvaIcon({ size = 56 }: { size?: number }) {
   return (
@@ -25,17 +19,7 @@ function CanvaIcon({ size = 56 }: { size?: number }) {
         </linearGradient>
       </defs>
       <circle cx="12" cy="12" r="12" fill="url(#canvaGradient)" />
-      <text
-        x="12"
-        y="16.5"
-        textAnchor="middle"
-        fontFamily="Georgia, serif"
-        fontSize="13"
-        fontWeight="bold"
-        fill="#fff"
-      >
-        C
-      </text>
+      <text x="12" y="16.5" textAnchor="middle" fontFamily="Georgia, serif" fontSize="13" fontWeight="bold" fill="#fff">C</text>
     </svg>
   );
 }
@@ -54,7 +38,6 @@ const techStack = [
   { name: "Canva", Icon: CanvaIcon, custom: true },
 ];
 
-// group the tech stack into pairs, e.g. [[React, Next.js], [TypeScript, Tailwind], ...]
 const pairs = techStack.reduce<(typeof techStack)[]>((acc, item, i) => {
   if (i % 2 === 0) acc.push([item]);
   else acc[acc.length - 1].push(item);
@@ -63,6 +46,8 @@ const pairs = techStack.reduce<(typeof techStack)[]>((acc, item, i) => {
 
 export default function Skills() {
   const [index, setIndex] = useState(0);
+  const { lang } = useLanguage();
+  const tr = t[lang].skills;
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -81,7 +66,7 @@ export default function Skills() {
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          Skills &amp; Technologies
+          {tr.heading}
         </motion.h2>
 
         <div className="flex justify-center items-center min-h-[220px]">
@@ -118,7 +103,6 @@ export default function Skills() {
           </AnimatePresence>
         </div>
 
-        {/* progress dots */}
         <div className="flex justify-center gap-2 mt-8">
           {pairs.map((_, i) => (
             <span

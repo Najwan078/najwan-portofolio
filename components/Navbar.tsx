@@ -1,22 +1,26 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { contact } from "@/lib/data";
 import MagneticButton from "./MagneticButton";
-
-const links = [
-  { href: "#about", label: "Tentang" },
-  { href: "#projects", label: "Projects" },
-  { href: "#skills", label: "Skills" },
-  { href: "#services", label: "Layanan" },
-  { href: "#contact", label: "Kontak" },
-];
+import { useLanguage } from "@/context/LanguageContext";
+import { t } from "@/lib/translations";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { lang, toggleLang } = useLanguage();
+  const tr = t[lang].nav;
+
+  const links = [
+    { href: "#about",    label: tr.about },
+    { href: "#projects", label: tr.projects },
+    { href: "#skills",   label: tr.skills },
+    { href: "#services", label: tr.services },
+    { href: "#contact",  label: tr.contact },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -26,9 +30,7 @@ export default function Navbar() {
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
+    return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
   const handleLinkClick = () => setMenuOpen(false);
@@ -60,16 +62,41 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <MagneticButton className="hidden md:inline-block" strength={0.25}>
-          <a
-            href={`https://wa.me/${contact.whatsapp}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-full bg-gold-500 px-5 py-2 text-sm font-semibold text-ink-950 hover:bg-gold-400 transition-colors"
+        <div className="hidden md:flex items-center gap-3">
+          {/* Language toggle */}
+          <button
+            onClick={toggleLang}
+            aria-label="Toggle language"
+            className="flex items-center gap-1 rounded-full border border-white/15 px-3 py-1.5 text-[11px] font-mono tracking-widest hover:border-gold-400/40 transition-colors"
           >
-            LET&apos;S TALK <ArrowRight size={15} />
-          </a>
-        </MagneticButton>
+            <motion.span
+              key={lang + "-id"}
+              animate={{ opacity: lang === "id" ? 1 : 0.35 }}
+              className={lang === "id" ? "text-gold-400" : "text-mist-400"}
+            >
+              ID
+            </motion.span>
+            <span className="text-mist-600 mx-0.5">|</span>
+            <motion.span
+              key={lang + "-en"}
+              animate={{ opacity: lang === "en" ? 1 : 0.35 }}
+              className={lang === "en" ? "text-gold-400" : "text-mist-400"}
+            >
+              EN
+            </motion.span>
+          </button>
+
+          <MagneticButton strength={0.25}>
+            <a
+              href={`https://wa.me/${contact.whatsapp}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-full bg-gold-500 px-5 py-2 text-sm font-semibold text-ink-950 hover:bg-gold-400 transition-colors"
+            >
+              LET&apos;S TALK <ArrowRight size={15} />
+            </a>
+          </MagneticButton>
+        </div>
 
         {/* mobile menu toggle */}
         <button
@@ -105,13 +132,22 @@ export default function Navbar() {
                 </li>
               ))}
             </ul>
-            <div className="px-6 pb-6">
+            <div className="px-6 pb-5 flex items-center gap-3">
+              {/* mobile language toggle */}
+              <button
+                onClick={toggleLang}
+                className="flex items-center gap-1 rounded-full border border-white/15 px-3 py-1.5 text-[11px] font-mono tracking-widest hover:border-gold-400/40 transition-colors"
+              >
+                <span className={lang === "id" ? "text-gold-400" : "text-mist-400"}>ID</span>
+                <span className="text-mist-600 mx-0.5">|</span>
+                <span className={lang === "en" ? "text-gold-400" : "text-mist-400"}>EN</span>
+              </button>
               <a
                 href={`https://wa.me/${contact.whatsapp}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={handleLinkClick}
-                className="inline-flex w-full items-center justify-center gap-1.5 rounded-full bg-gold-500 px-4 py-2.5 text-sm font-semibold text-ink-950 hover:bg-gold-400 transition-colors"
+                className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-full bg-gold-500 px-4 py-2.5 text-sm font-semibold text-ink-950 hover:bg-gold-400 transition-colors"
               >
                 LET&apos;S TALK <ArrowRight size={15} />
               </a>

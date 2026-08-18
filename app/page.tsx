@@ -13,11 +13,13 @@ import IntroDoor from "@/components/IntroDoor";
 import CaseStudies from "@/components/CaseStudies";
 import CursorSpotlight from "@/components/CursorSpotlight";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 export default function Home() {
   const [introDone, setIntroDone] = useState(false);
 
   return (
+    <LanguageProvider>
     <main className="relative">
       <ScrollProgressBar />
       <CursorSpotlight />
@@ -43,5 +45,6 @@ export default function Home() {
         <Footer />
       </div>
     </main>
+    </LanguageProvider>
   );
 }

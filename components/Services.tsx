@@ -1,12 +1,17 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
 import { services } from "@/lib/data";
 import ServiceCard from "./ServiceCard";
 import WordReveal from "./WordReveal";
 import FloatingParticles from "./FloatingParticles";
+import { useLanguage } from "@/context/LanguageContext";
+import { t } from "@/lib/translations";
 
 export default function Services() {
+  const { lang } = useLanguage();
+  const tr = t[lang].services;
+
   return (
     <section id="services" className="relative py-24 px-6 md:px-10">
       <FloatingParticles />
@@ -18,12 +23,9 @@ export default function Services() {
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.55, ease: "easeOut" }}
         >
-          <WordReveal text="Layanan yang saya tawarkan" />
+          <WordReveal key={lang + "-svc"} text={tr.heading} />
         </motion.h2>
-        <p className="mt-4 max-w-xl text-mist-400">
-          Jasa pembuatan landing page, website dan aplikasi.
-          Cocok untuk UMKM, organisasi, sekolah, dan tim.
-        </p>
+        <p className="mt-4 max-w-xl text-mist-400">{tr.desc}</p>
 
         <div className="mt-12 grid md:grid-cols-3 gap-6">
           {services.map((service, i) => (
