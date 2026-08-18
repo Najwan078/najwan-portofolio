@@ -1,7 +1,9 @@
 import Link from "next/link";
+import PageTransition from "@/components/PageTransition";
 
 export default function NotFound() {
   return (
+    <PageTransition>
     <main className="min-h-screen bg-ink-950 bg-grid-fade flex items-center justify-center px-6">
       <div className="text-center max-w-md">
         <p className="eyebrow bracket mb-6 text-gold-400">error 404</p>
@@ -20,5 +22,6 @@ export default function NotFound() {
         </Link>
       </div>
     </main>
+    </PageTransition>
   );
 }

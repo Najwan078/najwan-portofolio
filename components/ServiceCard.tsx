@@ -1,20 +1,37 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { Check } from "lucide-react";
 import type { Service } from "@/lib/data";
 import { contact } from "@/lib/data";
 
 export default function ServiceCard({ service, delay = 0 }: { service: Service; delay?: number }) {
+  // 3D tilt
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [5, -5]), { stiffness: 260, damping: 26 });
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-5, 5]), { stiffness: 260, damping: 26 });
+
+  function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
+    const rect = e.currentTarget.getBoundingClientRect();
+    mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
+    mouseY.set((e.clientY - rect.top) / rect.height - 0.5);
+  }
+  function handleMouseLeave() { mouseX.set(0); mouseY.set(0); }
+
   return (
+    <div style={{ perspective: 900 }}>
     <motion.div
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, margin: "-80px" }}
       transition={{ duration: 0.55, delay, ease: "easeOut" }}
-      className={`relative rounded-2xl p-7 flex flex-col ${
+      style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className={`relative rounded-2xl p-7 flex flex-col cursor-default ${
         service.featured
-          ? "card-solid border-l-gold-400 shadow-glow"
+          ? "card-solid border-l-gold-400 card-featured-glow"
           : "card-solid"
       }`}
     >
@@ -58,5 +75,6 @@ export default function ServiceCard({ service, delay = 0 }: { service: Service; 
         Pilih Paket
       </a>
     </motion.div>
+    </div>
   );
 }

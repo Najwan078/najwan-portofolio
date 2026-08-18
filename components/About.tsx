@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { Code2, Eye, Clock, TrendingUp } from "lucide-react";
+import WordReveal from "./WordReveal";
+import FloatingParticles from "./FloatingParticles";
 
 const facts = [
   { label: "semester 4", value: "Universitas Pamulang" },
@@ -35,6 +37,7 @@ const principles = [
 export default function About() {
   return (
     <section id="about" className="relative py-28 px-6 md:px-10 overflow-hidden">
+      <FloatingParticles />
       <div className="pointer-events-none absolute top-10 left-1/4 h-[320px] w-[320px] rounded-full bg-gold-500/10 blur-[110px]" />
       <div className="pointer-events-none absolute bottom-0 right-10 h-[260px] w-[260px] rounded-full bg-gold-500/10 blur-[100px]" />
 
@@ -48,7 +51,7 @@ export default function About() {
             transition={{ duration: 0.5 }}
           >
             <h2 className="font-display font-bold text-2xl sm:text-3xl text-mist-100 leading-tight mb-6">
-              Mahasiswa Teknik Informatika &amp; Freelance Web Developer
+              <WordReveal text="Mahasiswa Teknik Informatika & Freelance Web Developer" />
             </h2>
 
             <div className="flex flex-wrap gap-3 mb-7">
@@ -86,7 +89,7 @@ export default function About() {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <h2 className="font-display font-bold text-2xl sm:text-3xl text-mist-100 leading-tight mb-6">
-              Cara Saya Kerja
+              <WordReveal text="Cara Saya Kerja" />
             </h2>
             <p className="text-mist-400 leading-relaxed mb-6">
               Empat prinsip yang saya pegang di setiap project, dari yang kecil

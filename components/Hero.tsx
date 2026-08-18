@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform, useSpring, useInView } from "framer-motion";
 import { Linkedin, Instagram, Github, FileText, ChevronDown, Globe } from "lucide-react";
 import { contact } from "@/lib/data";
 import MagneticButton from "./MagneticButton";
@@ -89,9 +89,40 @@ const cvOptions = [
   },
 ];
 
+/* ── CountUp: animasikan angka dari 0 ke target saat masuk viewport ── */
+function CountUp({ to, duration = 1.4 }: { to: number; duration?: number }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-60px" });
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!inView) return;
+    let start = 0;
+    const step = to / (duration * 60);
+    const timer = setInterval(() => {
+      start += step;
+      if (start >= to) {
+        setCount(to);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(start));
+      }
+    }, 1000 / 60);
+    return () => clearInterval(timer);
+  }, [inView, to, duration]);
+
+  return <span ref={ref}>{count}</span>;
+}
+
 export default function Hero() {
   const [cvOpen, setCvOpen] = useState(false);
   const cvRef = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<HTMLElement>(null);
+
+  // Parallax: foto bergerak 30% lebih lambat dari scroll
+  const { scrollY } = useScroll();
+  const rawParallax = useTransform(scrollY, [0, 600], [0, -80]);
+  const photoParallax = useSpring(rawParallax, { stiffness: 60, damping: 20 });
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
@@ -103,7 +134,7 @@ export default function Hero() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [cvOpen]);
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden" style={{ background: "#08080D" }}>
+    <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden" style={{ background: "#08080D" }}>
       <AnimatedBackground />
 
       {/* vertical social icons, animate in from the left */}
@@ -122,6 +153,7 @@ export default function Hero() {
             aria-label={s.label}
             initial={{ opacity: 0, x: -12 }}
             animate={{ opacity: 1, x: 0 }}
+            whileHover={{ scale: 1.28, y: -3 }}
             transition={{ duration: 0.4, delay: 1.0 + i * 0.1 }}
             className="text-mist-400 hover:text-gold-400 transition-colors"
           >
@@ -256,15 +288,15 @@ export default function Hero() {
             className="mt-8 flex items-center gap-6 border-t border-white/10 pt-5 w-full max-w-md"
           >
             <div>
-              <p className="font-display font-bold text-xl sm:text-2xl text-mist-100">4</p>
+              <p className="font-display font-bold text-xl sm:text-2xl text-mist-100"><CountUp to={4} /></p>
               <p className="eyebrow text-mist-400 mt-1 text-[10px] sm:text-xs">Project Selesai</p>
             </div>
             <div>
-              <p className="font-display font-bold text-xl sm:text-2xl text-mist-100">1</p>
+              <p className="font-display font-bold text-xl sm:text-2xl text-mist-100"><CountUp to={1} duration={0.8} /></p>
               <p className="eyebrow text-mist-400 mt-1 text-[10px] sm:text-xs">Tahun Freelance</p>
             </div>
             <div>
-              <p className="font-display font-bold text-xl sm:text-2xl text-mist-100">4</p>
+              <p className="font-display font-bold text-xl sm:text-2xl text-mist-100"><CountUp to={4} /></p>
               <p className="eyebrow text-mist-400 mt-1 text-[10px] sm:text-xs">Semester Kuliah</p>
             </div>
           </motion.div>
@@ -273,6 +305,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20, filter: "blur(12px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          style={{ y: photoParallax }}
           transition={{ duration: 1.0, delay: 0.2, ease: "easeOut" }}
           className="flex flex-col items-center justify-center flex-shrink-0 relative order-1 md:order-2 w-full md:w-[48%]"
         >

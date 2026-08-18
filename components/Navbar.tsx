@@ -52,7 +52,7 @@ export default function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="eyebrow text-mist-400 hover:text-gold-400 transition-colors"
+                className="nav-underline eyebrow text-mist-400 hover:text-gold-400 transition-colors"
               >
                 {link.label}
               </a>

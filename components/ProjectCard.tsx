@@ -2,20 +2,37 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { ArrowUpRight, Github } from "lucide-react";
 import type { Project } from "@/lib/data";
 
 export default function ProjectCard({ project, delay = 0 }: { project: Project; delay?: number }) {
   const [loaded, setLoaded] = useState(false);
 
+  // 3D tilt
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [6, -6]), { stiffness: 280, damping: 28 });
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-6, 6]), { stiffness: 280, damping: 28 });
+
+  function handleMouseMove(e: React.MouseEvent<HTMLElement>) {
+    const rect = e.currentTarget.getBoundingClientRect();
+    mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
+    mouseY.set((e.clientY - rect.top) / rect.height - 0.5);
+  }
+  function handleMouseLeave() { mouseX.set(0); mouseY.set(0); }
+
   return (
+    <div style={{ perspective: 800 }}>
     <motion.article
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, margin: "-80px" }}
       transition={{ duration: 0.55, delay, ease: "easeOut" }}
-      className="card-solid rounded-2xl overflow-hidden hover:border-gold-400/30 transition-colors group"
+      style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className="card-solid rounded-2xl overflow-hidden hover:border-gold-400/30 transition-colors group cursor-default"
     >
       {project.image && (
         <div className="relative w-full h-48 overflow-hidden border-b border-white/10 bg-ink-800">
@@ -91,5 +108,6 @@ export default function ProjectCard({ project, delay = 0 }: { project: Project; 
         </div>
       </div>
     </motion.article>
+    </div>
   );
 }

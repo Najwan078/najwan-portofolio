@@ -128,3 +128,42 @@ p {
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
 }
+
+/* ── Featured Card — Animated Glow Border ── */
+@keyframes card-glow-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 0 1px rgba(212,175,122,0.25),
+      0 8px 40px -8px rgba(124,111,240,0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 0 1px rgba(212,175,122,0.65),
+      0 0 24px -4px rgba(212,175,122,0.28),
+      0 8px 40px -4px rgba(212,175,122,0.22);
+  }
+}
+
+.card-featured-glow {
+  animation: card-glow-pulse 2.8s ease-in-out infinite;
+}
+
+/* ── Navbar underline from center ── */
+.nav-underline {
+  position: relative;
+}
+.nav-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #D4AF7A;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.25s ease;
+}
+.nav-underline:hover::after {
+  transform: scaleX(1);
+}

@@ -74,9 +74,15 @@ export default function Skills() {
   return (
     <section id="skills" className="relative py-24 px-6 md:px-10">
       <div className="mx-auto max-w-6xl">
-        <h2 className="font-display font-bold text-3xl sm:text-4xl text-mist-100 mb-12">
-          Skills & Technologies
-        </h2>
+        <motion.h2
+          className="font-display font-bold text-3xl sm:text-4xl text-mist-100 mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          Skills &amp; Technologies
+        </motion.h2>
 
         <div className="flex justify-center items-center min-h-[220px]">
           <AnimatePresence mode="wait">
@@ -89,17 +95,24 @@ export default function Skills() {
               className="flex flex-wrap justify-center gap-6"
             >
               {pairs[index].map((t) => (
-                <div
+                <motion.div
                   key={t.name}
-                  className="card-solid rounded-2xl px-8 py-8 sm:px-14 sm:py-10 flex flex-col items-center gap-3 w-36 sm:w-56"
+                  className="card-solid rounded-2xl px-8 py-8 sm:px-14 sm:py-10 flex flex-col items-center gap-3 w-36 sm:w-56 cursor-default"
+                  whileHover={{ scale: 1.07, y: -4 }}
+                  transition={{ type: "spring", stiffness: 320, damping: 18 }}
                 >
-                  {"custom" in t && t.custom ? (
-                    <t.Icon size={44} />
-                  ) : (
-                    <t.Icon size={44} className="text-gold-400" />
-                  )}
+                  <motion.div
+                    whileHover={{ scale: 1.18, rotate: 8 }}
+                    transition={{ type: "spring", stiffness: 350, damping: 15 }}
+                  >
+                    {"custom" in t && t.custom ? (
+                      <t.Icon size={44} />
+                    ) : (
+                      <t.Icon size={44} className="text-gold-400" />
+                    )}
+                  </motion.div>
                   <span className="text-sm sm:text-base text-mist-200 text-center font-medium">{t.name}</span>
-                </div>
+                </motion.div>
               ))}
             </motion.div>
           </AnimatePresence>

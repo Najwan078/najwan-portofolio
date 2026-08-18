@@ -12,12 +12,14 @@ import Footer from "@/components/Footer";
 import IntroDoor from "@/components/IntroDoor";
 import CaseStudies from "@/components/CaseStudies";
 import CursorSpotlight from "@/components/CursorSpotlight";
+import ScrollProgressBar from "@/components/ScrollProgressBar";
 
 export default function Home() {
   const [introDone, setIntroDone] = useState(false);
 
   return (
     <main className="relative">
+      <ScrollProgressBar />
       <CursorSpotlight />
 
       {/* ── Intro video overlay ── */}
